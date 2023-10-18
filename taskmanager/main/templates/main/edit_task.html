@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Редактировать задачу
+{% endblock %}
+
+{% block content %}
+<h1>Редактировать задачу</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Заголовок:</label>
+    <input type="text" id="title" name="title" value="{{ task.title }}" required>
+    <br>
+    <label for="task">Текст задачи:</label>
+    <textarea id="task" name="task" required>{{ task.task }}</textarea>
+    <br>
+    <button type="submit">Сохранить</button>
+</form>
+{% endblock %}
